@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//cria tabela 
+model Pool {
+  id        String   @id @default(cuid()) //@id primaryKey   @default -cuid - gera de forma automatica
+  title     String
+  code      String   @unique
+  createdAt DateTime @default(now()) //salva como data atual
+  ownerId   String?
+
+  participants Participant[] //cria relacionamento
+  owner        User?         @relation(fields: [ownerId], references: [id])
+}
+
+model Participant {
+  id     String @id @default(cuid())
+  userId String
+  poolId String
+
+  guesses Guess[] //relacionamento criado de forma automatica //não é uma coluna criada no banco de dados
+  user    User    @relation(fields: [userId], references: [id])
+  pool    Pool    @relation(fields: [poolId], references: [id])
+
+  @@unique([userId, poolId]) //garante que só irá ter um unico userID e um unico poolId
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  avatarUrl String?
+  createdAt DateTime @default(now())
+
+  participatingAt Participant[]
+  ownPools        Pool[]
+}
+
+model Game {
+  id                    String   @id @default(cuid())
+  date                  DateTime
+  firstTeamCountryCode  String //usar codigo ISo por pais (verificar link> https://countrycode.org)
+  secondTeamCountryCode String //usar codigo ISo por pais (verificar link> https://countrycode.org)
+
+  guesses Guess[]
+}
+
+model Guess {
+  id               String   @id @default(cuid())
+  firstTeamPoints  Int
+  secondTeamPoints Int
+  createdAt        DateTime @default(now())
+  gameId           String
+  participantId    String
+
+  participant Participant @relation(fields: [participantId], references: [id])
+  game        Game        @relation(fields: [gameId], references: [id])
+}
