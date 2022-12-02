@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import jwt from "@fastify/jwt";
 import cors from "@fastify/cors";
 import { poolsRoutes } from "./routes/pools";
 import { userRoutes } from "./routes/users";
@@ -13,6 +14,12 @@ async function bootstrap() {
 
   await fastify.register(cors, {
     origin: true, //informa que qualquer aplicação poderá acessar o banco de dados
+  });
+
+  // gerando JWT
+  // Em produção precisa ser variavel de ambiente
+  await fastify.register(jwt, {
+    secret: 'nlwcopa'
   });
 
  await fastify.register(poolsRoutes);
