@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { FlatList, Icon, useToast, VStack } from "native-base";
+import { Box, FlatList, Icon, useToast, VStack } from "native-base";
 import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { Button } from "../components/Button";
 import { Header } from "../components/Header";
@@ -61,20 +61,28 @@ export function Pools() {
       {loading ? (
         <Loading />
       ) : (
-        <FlatList
-          data={pools}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <PoolCard
-              data={item}
-              onPress={() => navigation.navigate("details", { id: item.id , title: item.title})}
-            />
-          )}
-          showsVerticalScrollIndicator={false}
-          px={5}
-          _contentContainerStyle={{ pb: 10 }}
-          ListEmptyComponent={<EmptyPoolList />}
-        />
+        <>
+
+          <FlatList
+            data={pools}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <PoolCard
+                data={item}
+                onPress={() =>
+                  navigation.navigate("details", {
+                    id: item.id,
+                    title: item.title,
+                  })
+                }
+              />
+            )}
+            showsVerticalScrollIndicator={false}
+            px={5}
+            _contentContainerStyle={{ pb: 400 }}
+            ListEmptyComponent={<EmptyPoolList />}
+          />
+        </>
       )}
     </VStack>
   );

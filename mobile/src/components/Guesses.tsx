@@ -92,7 +92,7 @@ export function Guesses({ poolId, code }: Props) {
           onGuessConfirm={() => handleGuessConfirm(item.id)}
         />
       )}
-      _contentContainerStyle={{ pb: 10 }}
+      _contentContainerStyle={{ pb: 180 }}
       ListEmptyComponent={() => <EmptyMyPoolList code={code} />}
     />
   );

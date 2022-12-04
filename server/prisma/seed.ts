@@ -28,17 +28,108 @@ async function main() {
 
   await prisma.game.create({
     data: {
-      date: "2022-11-14T12:00:00.753Z", //new Date().toISOString()
-      firstTeamCountryCode: "BR",
-      secondTeamCountryCode: "DE",
+      date: "2022-11-20T13:00:00.753Z", //new Date().toISOString()
+      firstTeamCountryCode: "QA",
+      secondTeamCountryCode: "EC",
     },
   });
 
   await prisma.game.create({
     data: {
-      date: "2022-12-05T12:00:00.753Z", //new Date().toISOString()
-      firstTeamCountryCode: "AL",
-      secondTeamCountryCode: "FR",
+      date: "2022-11-21T10:00:00.753Z",
+      firstTeamCountryCode: "GB",
+      secondTeamCountryCode: "IR",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-21T13:00:00.753Z",
+      firstTeamCountryCode: "SN",
+      secondTeamCountryCode: "NL",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-21T16:00:00.753Z",
+      firstTeamCountryCode: "US",
+      secondTeamCountryCode: "IE",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-22T07:00:00.753Z",
+      firstTeamCountryCode: "SA",
+      secondTeamCountryCode: "AR",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-22T10:00:00.753Z",
+      firstTeamCountryCode: "DK",
+      secondTeamCountryCode: "TN",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-22T13:00:00.753Z",
+      firstTeamCountryCode: "MX",
+      secondTeamCountryCode: "PL",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-22T16:00:00.753Z",
+      firstTeamCountryCode: "FR",
+      secondTeamCountryCode: "AU",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-23T10:00:00.753Z",
+      firstTeamCountryCode: "DE",
+      secondTeamCountryCode: "JP",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-23T13:00:00.753Z",
+      firstTeamCountryCode: "ES",
+      secondTeamCountryCode: "CR",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-23T16:00:00.753Z",
+      firstTeamCountryCode: "BE",
+      secondTeamCountryCode: "CA",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-24T07:00:00.753Z",
+      firstTeamCountryCode: "CH",
+      secondTeamCountryCode: "CM",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-24T10:00:00.753Z",
+      firstTeamCountryCode: "UY",
+      secondTeamCountryCode: "KR",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-24T13:00:00.753Z",
+      firstTeamCountryCode: "PT",
+      secondTeamCountryCode: "GH",
+    },
+  });
+  await prisma.game.create({
+    data: {
+      date: "2022-11-24T16:00:00.753Z",
+      firstTeamCountryCode: "BR",
+      secondTeamCountryCode: "RS",
     },
   });
 
